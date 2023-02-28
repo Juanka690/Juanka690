@@ -26,7 +26,7 @@
     }
     .c {
         animation-iteration-count: infinite;
-        animation-duration: 5s;
+        animation-duration: 25s;
     }
 @keyframes c0 {
                 from {
