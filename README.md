@@ -1,4 +1,4 @@
-![gitartwork](nombre.svg)
+![gitartwork](gitartwork.svg)
 
 <div id="header">
   <h1>Hi, I'm Camilo Cardona</h1>
