@@ -25,8 +25,8 @@
         outline: 1px solid var(--c0)
     }
     .c {
-        animation-iteration-count: infinite;
-        animation-duration: 25s;
+        
+        animation-duration: 5s;
     }
 @keyframes c0 {
                 from {
