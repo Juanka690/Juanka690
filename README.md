@@ -1,6 +1,5 @@
 <div id="header" align="center">
   <a href=#><img src="name.svg"></a>
-  <h1>Hi, I'm Camilo Cardona</h1>
-  <h3></h3>
+  <p>
   <a href=#><img src="culebra.svg"></a>
 </div>
