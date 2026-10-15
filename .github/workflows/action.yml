@@ -39,7 +39,7 @@ jobs:
       # publica el contenido de dist/ en la rama output
       # disponible en https://raw.githubusercontent.com/<user>/<repo>/output/<file>
       - name: Push github-contribution-grid-snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: crazy-max/ghaction-github-pages@v5
         with:
           target_branch: output
           build_dir: dist
