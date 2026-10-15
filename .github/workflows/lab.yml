@@ -1,0 +1,54 @@
+name: laboratorio
+
+on:
+  # carrera y laberinto nuevos cada 6 horas
+  schedule:
+    - cron: "17 */6 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - "lab/**"
+      - ".github/workflows/lab.yml"
+
+permissions:
+  contents: write # para publicar los SVG en la rama lab
+  actions: write  # para el keepalive
+
+concurrency:
+  group: lab
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Generar SVGs
+        run: node lab/build.ts dist
+
+      # la rama lab solo contiene los SVG generados
+      - name: Publicar en la rama lab
+        uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: lab
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # GitHub desactiva los workflows programados tras 60 días sin actividad;
+      # re-habilitarlo en cada ejecución reinicia ese contador.
+      - name: Keepalive
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/lab.yml/enable"
