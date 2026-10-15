@@ -4,9 +4,9 @@
     "",
     "",
     "",
-    "X",
     "",
-    "O",
+    "",
+    "",
     "",
     ""
   ],
@@ -15,13 +15,5 @@
     "ai": 0,
     "draws": 0
   },
-  "history": [
-    {
-      "user": "Juanka690",
-      "cell": 4,
-      "ai": 6,
-      "nodes": 8465,
-      "result": "playing"
-    }
-  ]
+  "history": []
 }
