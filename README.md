@@ -88,7 +88,7 @@ Código: [`lab/path.ts`](lab/path.ts)
 
 ### 🌀 Series de Fourier
 
-<img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/fourier.svg" width="100%" alt="Círculos girando que dibujan una taza de café con la transformada de Fourier" />
+<img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/fourier.svg" width="100%" alt="Círculos girando que escriben Juanka con la transformada de Fourier" />
 
 <details>
 <summary><b>¿Cómo funciona? Abre para aprender 🤓</b></summary>
@@ -97,7 +97,7 @@ Código: [`lab/path.ts`](lab/path.ts)
 
 Cualquier curva cerrada se puede dibujar sumando **círculos que giran**. El proceso:
 
-1. Recorro el contorno de la taza y lo muestreo en $N = 512$ puntos equidistantes. Cada punto es un número complejo $z_n = x_n + i\,y_n$.
+1. Diseñé mi firma («Juanka» en cursiva) como **un solo trazo cerrado** de curvas de Bézier: el subrayado final vuelve al inicio de la J. La recorro y la muestreo en $N = 1024$ puntos equidistantes. Cada punto es un número complejo $z_n = x_n + i\,y_n$.
 2. Calculo la **Transformada Discreta de Fourier**:
 
 $$c_k = \frac{1}{N}\sum_{n=0}^{N-1} z_n \, e^{-2\pi i k n / N}$$
@@ -106,71 +106,11 @@ $$c_k = \frac{1}{N}\sum_{n=0}^{N-1} z_n \, e^{-2\pi i k n / N}$$
 
 $$z(t) = \sum_{k} c_k \, e^{2\pi i k t}$$
 
-4. Ordeno los círculos de mayor a menor y uso solo los 60 más grandes de 512. Con pocos círculos sale la forma general y con más aparecen los detalles. Es la misma idea de representar una señal por sus frecuencias que usan JPEG y MP3.
+4. Ordeno los círculos de mayor a menor y uso solo los 240 más grandes de 1024. Con pocos círculos sale una mancha y con más aparecen las letras, como muestran los paneles de abajo. Es la misma idea de representar una señal por sus frecuencias que usan JPEG y MP3.
 
 **En el SVG** cada círculo es un `<g>` anidado dentro del anterior que gira con `animateTransform`. Así cada uno rota relativo a su padre a $k_i - k_{i-1}$ vueltas por ciclo.
 
 Código: [`lab/fourier.ts`](lab/fourier.ts)
-
-</details>
-
----
-
-### 🎮 Juega contra mi IA
-
-Haz clic en una casilla: se abre un issue con la jugada ya escrita, solo dale **Submit new issue**. En unos segundos mi IA responde, comenta en el issue y actualiza este tablero.
-
-<!-- TTT:START -->
-<div align="center">
-
-<table>
-<tr><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C1&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-1.svg" width="84" alt="casilla 1"></a></td><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C2&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-2.svg" width="84" alt="casilla 2"></a></td><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C3&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-3.svg" width="84" alt="casilla 3"></a></td></tr>
-<tr><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C4&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-4.svg" width="84" alt="casilla 4"></a></td><td><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/x.svg" width="84" alt="X"></td><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C6&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-6.svg" width="84" alt="casilla 6"></a></td></tr>
-<tr><td><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/o.svg" width="84" alt="O"></td><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C8&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-8.svg" width="84" alt="casilla 8"></a></td><td><a href="https://github.com/Juanka690/Juanka690/issues/new?title=ttt%7Cmove%7C9&body=%C2%A1Solo%20dale%20**Submit%20new%20issue**!%20%F0%9F%91%87%20Mi%20IA%20responder%C3%A1%20en%20unos%20segundos%20y%20el%20tablero%20del%20perfil%20se%20actualizar%C3%A1%20solo."><img src="https://raw.githubusercontent.com/Juanka690/Juanka690/lab/ttt/cell-9.svg" width="84" alt="casilla 9"></a></td></tr>
-</table>
-
-**Tu turno:** juegas con ❌, haz clic en una casilla libre.
-
-🧑 Humanos **0** · 🤖 IA **0** · 🤝 Empates **0**
-
-</div>
-
-<details>
-<summary><b>Últimas jugadas</b></summary>
-
-- [@Juanka6](https://github.com/Juanka6) jugó en **5** → la IA respondió en **7** tras analizar 8.465 posiciones
-
-</details>
-
-<!-- TTT:END -->
-
-<details>
-<summary><b>¿Cómo piensa la IA? Abre para aprender 🤓</b></summary>
-
-<br>
-
-Usa **minimax con poda alfa-beta**: simula todas las partidas posibles a partir del tablero actual. En sus turnos elige la jugada de mayor valor y supone que tú siempre eliges la que más la perjudica.
-
-- Ganar vale $10 - \text{profundidad}$: prefiere ganar rápido.
-- Perder vale $\text{profundidad} - 10$: si va a perder, lo retrasa todo lo posible.
-- Empatar vale $0$.
-
-La **poda alfa-beta** descarta ramas que ya no pueden cambiar la decisión, así que analiza muchas menos posiciones que las 255.168 partidas posibles del triqui. Como juega perfecto, **lo mejor que puedes lograr es un empate**... ¿o no? 😏
-
-```mermaid
-sequenceDiagram
-    participant Tú
-    participant Issue as GitHub Issue
-    participant Action as GitHub Actions
-    participant IA as Minimax (lab/ttt)
-    Tú->>Issue: clic en una casilla ("ttt|move|5")
-    Issue->>Action: evento issues.opened
-    Action->>IA: node lab/ttt/cli.ts play
-    IA-->>Action: jugada de la IA y nuevo tablero
-    Action->>Tú: actualiza el README y comenta en el issue
-```
-
-Código: [`lab/ttt/engine.ts`](lab/ttt/engine.ts) · [`.github/workflows/ttt.yml`](.github/workflows/ttt.yml)
 
 </details>
 

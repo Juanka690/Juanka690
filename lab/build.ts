@@ -7,7 +7,6 @@ import { header } from './header.ts';
 import { rng } from './lib.ts';
 import { pathfinding } from './path.ts';
 import { sortRace } from './sort.ts';
-import { tttAssets } from './ttt/art.ts';
 
 const args = process.argv.slice(2);
 const out = args.find((a) => !a.startsWith('--')) ?? 'dist';
@@ -24,7 +23,6 @@ const files: Record<string, string> = {
   'path.svg': path.svg,
   'fourier.svg': fourier(),
 };
-for (const [name, content] of Object.entries(tttAssets())) files[`ttt/${name}`] = content;
 
 for (const [name, content] of Object.entries(files)) {
   const file = join(out, name);
